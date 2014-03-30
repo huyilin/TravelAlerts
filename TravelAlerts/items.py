@@ -5,7 +5,9 @@
 
 from scrapy.item import Item, Field
 
-class TravelalertsItem(Item):
+class TravelAlertsItem(Item):
     # define the fields for your item here like:
     # name = Field()
-    pass
+    event= Field()
+    destination= Field()
+    date=Field()
