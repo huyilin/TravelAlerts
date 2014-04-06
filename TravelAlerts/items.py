@@ -9,7 +9,7 @@ class TravelAlertsItem(Item):
     # name = Field()
     event= Field()
     city= Field()
-    date=Field()
-class CityList():
-    citylist=[u'Chile',u'Guinea','Brazil','Rio']
-    
+    date=Field()    
+# class CityList():
+
+
