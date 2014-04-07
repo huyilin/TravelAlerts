@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Scrapy the Alerts data from wiki travel
 from scrapy.spider import Spider
 from TravelAlerts.items import TravelAlertsItem
@@ -18,20 +19,20 @@ def convert_date(date):
     return date
 
 def construct_items(events,dates,areas,city_list):
-    Alerts=[]
+    alerts=[]
     for event,date,destination in zip(events,dates,areas):
-        keywords=nltk.pos_tag(nltk.word_tokenize(event))
         for city in destination:
             if city in city_list:
-                for keyword in keywords:
-                    if keyword[1]=='NN' or keyword[1]=='NNP':
-                        item=TravelAlertsItem()
-                        item['event']=unicodedata.normalize('NFKD', keyword[0]).encode('ascii','ignore')
-                        item['city']=unicodedata.normalize('NFKD', city).encode('ascii','ignore')
-                        conv=unicodedata.normalize('NFKD', date).encode('ascii','ignore')
-                        item['date']=convert_date(conv)
-                        Alerts.append(item)
-    return Alerts
+                item=TravelAlertsItem()
+#                 item['event']=unicodedata.normalize('NFKD', event).encode('ascii','ignore')
+#                 item['city']=unicodedata.normalize('NFKD', city).encode('ascii','ignore')
+#                 conv=unicodedata.normalize('NFKD', date).encode('ascii','ignore')
+#                 item['date']=convert_date(conv)
+                item['date']=convert_date(date)
+                item['city']=city
+                item['event']=event
+                alerts.append(item)
+    return alerts
 
 class TravelAlerts(Spider):
     name = 'TravelAlerts'
@@ -51,6 +52,13 @@ class TravelAlerts(Spider):
                 area=dir.xpath('span/a/text()').extract()
                 areas.append(area)
         alerts=construct_items(events,dates,areas,city_list)
+        file=open('/home/yilin/workspace/Scrapy/result.csv','a')
         for unit in alerts:
-            print unit
+            unit['event']=unit['event'].replace(',',';')
+            alert=unit['city']+','+unit['date']+','+unit['event']+','+'Alerts'+'\n'
+            alert=alert.encode('utf-8')
+            file.write(alert)
         return alerts
+    
+    
+    

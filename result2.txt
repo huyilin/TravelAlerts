@@ -1,0 +1,18 @@
+Crimea;2014-03-20;Ukraine proposes demilitarized zone in Crimea Alerts
+Crimea;2014-03-17;Crimea votes to leave Ukraine for Russia Alerts
+Crimea;2014-03-07;Crimea military base stand-off over Alerts
+England;2014-02-13;Floods hit homes in England Alerts
+London;2014-04-06;sky is clear;weather
+London;2014-04-07;heavy intensity rain;weather
+London;2014-04-08;scattered clouds;weather
+London;2014-04-09;sky is clear;weather
+London;2014-04-10;heavy intensity rain;weather
+London;2014-04-11;light rain;weather
+London;2014-04-12;sky is clear;weather
+Lausanne;2014-04-06;sky is clear;weather
+Lausanne;2014-04-07;light rain;weather
+Lausanne;2014-04-08;moderate rain;weather
+Lausanne;2014-04-09;few clouds;weather
+Lausanne;2014-04-10;sky is clear;weather
+Lausanne;2014-04-11;moderate rain;weather
+Lausanne;2014-04-12;light rain;weather
